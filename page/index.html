@@ -14,8 +14,14 @@
     <script type="text/javascript" src="../script/jquery-3.2.1.min.js"></script>
     <!--Bootstrap-->
     <script type="text/javascript" src="../script/bootstrap.min.js"></script>
-
+    <!--clock-->
+    <script type="text/javascript" src="../script/clock.js"></script>
     <style type="text/css">
+        @font-face {
+            font-family: "dnmbxsxd";
+            src: url('../fonts/duanningmaobixingshuxiuding.ttf');
+        }
+
         .i-container {
             width: 100%;
             padding: 0px;
@@ -31,21 +37,53 @@
             color: #000000;
         }
 
-        .copyright {
+        .index-copyright {
             margin-top: 20px;
             margin-bottom: 20px;
             text-align: center;
+        }
+
+        .index-one-gif {
+            float: right;
+            width: 50%;
+        }
+
+        .index-intro {
+            margin-top: 100px;
+        }
+
+        .jumbotron .index-intro-title {
+            font-family: dnmbxsxd;
+            font-size: 80px;
+        }
+
+        .jumbotron .index-intro-title-two {
+            font-weight: bolder;
+            font-size: 40px;
+        }
+
+        #c-clock {
+            display: inline-block;
+            width: 50%;
         }
     </style>
 </head>
 <body>
 <div class="container i-container">
     <div class="jumbotron i-jumbotron">
-        <h1>欢迎来到布袋戏社区！</h1>
-        <p>这是一个新的页面。</p>
-        <p><a class="btn btn-primary btn-lg" role="button">
-            了解更多</a>
-        </p>
+        <div id="c-clock"></div>
+        <img class="img-circle index-one-gif" src="../images/yxc.gif">
+        <div class="index-intro">
+            <h1 class="index-intro-title">欢迎来到布袋戏社区！</h1>
+            <p class="index-intro-title-two">
+                <small>
+                    This is a puppet community.
+                </small>
+            </p>
+            <p><a class="btn btn-primary btn-lg" role="button">
+                了解更多</a>
+            </p>
+        </div>
     </div>
 </div>
 <div class="container">
@@ -54,7 +92,7 @@
     <span class="fa fa-linkedin-square i-fa"></span>
     <span class="fa fa-qq i-fa"></span>
     <span class="fa fa-angellist i-fa"></span>
-    <div class="copyright">Copyright © 2017 iSkyCode</div>
+    <div class="index-copyright">Copyright © 2017 iSkyCode</div>
 </div>
 </body>
 </html>
