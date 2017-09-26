@@ -122,6 +122,23 @@
             height: 1px;
             background-color: gray;
         }
+
+        .i-breadcrumb-ol {
+            margin: 0px;
+            font-size: 16px;
+        }
+
+        .i-search-group-div {
+            font-size: 16px;
+        }
+
+        .i-data-table {
+            font-size: 16px;
+        }
+
+        .i-page-btn-ul {
+            font-size: 16px;
+        }
     </style>
 
 <body>
@@ -139,6 +156,13 @@
             <span class="input-group-addon i-addon-span"><i class="fa fa-search"></i></span>
         </div>
         <div class="list-group mt-5">
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-home i-menu-logo-i"></i>站内首页</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                </div>
+            </div>
             <div class="list-group i-menu-group-div">
                 <div class="list-group-item i-menu-item-div">
                     <div class="i-menu-name-div"><i class="fa fa-user-circle i-menu-logo-i"></i>个人管理</div>
@@ -218,7 +242,65 @@
     <!--Main-->
     <div class="i-main-div">
         <div class="i-content-div">
+            <ol class="breadcrumb i-breadcrumb-ol">
+                <li class="breadcrumb-item"><a href="#">首页</a></li>
+                <li class="breadcrumb-item"><a href="#">系统管理</a></li>
+                <li class="breadcrumb-item active">角色管理</li>
+            </ol>
+            <div class="card i-search-group-div">
+                <div class="card-body form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">关键词</span>
+                        <input id="name" name="name" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="card i-data-group-div">
+                <div class="card-body">
+                    <table class="table i-data-table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation i-page-group-nav">
+                        <ul class="pagination i-page-btn-ul">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="card-footer">
 
+                </div>
+            </div>
         </div>
     </div>
 </div>
