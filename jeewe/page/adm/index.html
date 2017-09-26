@@ -4,8 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理</title>
+
     <link rel="stylesheet" href="../../../plugin/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../plugin/awesome/css/font-awesome.min.css"/>
+
+    <script src="../../../common/script/jquery-3.2.1.min.js"></script>
+    <script src="../../../plugin/popper/js/popper.min.js"></script>
+    <script src="../../../plugin/bootstrap/js/bootstrap.min.js"></script>
 
     <style>
         html, body {
@@ -30,7 +35,7 @@
             width: 18%;
             height: 100%;
             margin: 0px;
-            background-color: darkcyan;
+            overflow-y: scroll;
         }
 
         .i-main-div {
@@ -42,16 +47,64 @@
             background-color: lightgray;
         }
 
-        .i-menu-div {
+        .i-menu-common-div {
             border: none;
-            background-color: darkcyan;
+            border-radius: 0px;
+        }
+
+        .i-menu-item-div, .i-menu-item-div:first-child, .i-menu-item-div:last-child {
+            min-height: 38px;
+            padding: 0px;
+            border-left: none;
+            border-right: none;
+            border-width: 1px;
+            border-color: lightgray;
+            border-radius: 0px;;
+            cursor: pointer;
+        }
+
+        .i-menu-name-div {
+            height: 100%;
+            padding-top: 5px;
+            padding-left: 80px;
+            font-size: 16px;
+        }
+
+        .i-menu-logo-i {
+            width: 15px;
+            margin-right: 8px;
+            text-align: center;
+        }
+
+        .i-child-menu-item-div, .i-child-menu-item-div:first-child, .i-child-menu-item-div:last-child {
+            min-height: 38px;
+            padding: 0px;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            border-color: white;
+            border-radius: 0px;
+            background-color: darkgray;
+            cursor: pointer;
+        }
+
+        .i-div-closed {
+            display: none;
+        }
+
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+            background-color: gray;
         }
     </style>
+
 <body>
 
 <div class="i-page-div">
     <div class="i-menus-div">
-        <div class="card text-center text-white i-menu-div">
+        <div class="card text-center i-menu-common-div">
             <div class="card-body">
                 <img class="img-fluid rounded-circle" src="../../../common/images/yxc.jpg"/>
             </div>
@@ -60,13 +113,89 @@
             <input type="text" class="form-control" aria-label="菜单查询" placeholder="输入菜单名"/>
             <span class="input-group-addon"><i class="fa fa-search"></i></span>
         </div>
+        <div class="list-group mt-5">
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-user-circle i-menu-logo-i"></i>个人管理</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-user-circle-o i-menu-logo-i"></i>个人信息</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-camera-retro i-menu-logo-i"></i>修改头像</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-lock i-menu-logo-i"></i>修改密码</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-cogs i-menu-logo-i"></i>系统管理</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-cog i-menu-logo-i"></i>系统信息</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-users i-menu-logo-i"></i>用户管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-vcard i-menu-logo-i"></i>角色管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa fa-navicon i-menu-logo-i"></i>菜单管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-bookmark i-menu-logo-i"></i>权限管理</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-bar-chart i-menu-logo-i"></i>系统监控</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-connectdevelop i-menu-logo-i"></i>框架监控</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-database i-menu-logo-i"></i>数据库监控</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-book i-menu-logo-i"></i>日志监控</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-folder i-menu-logo-i"></i>内容管理</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-file-text i-menu-logo-i"></i>文章管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-user-secret i-menu-logo-i"></i>人物管理</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="i-main-div">
     </div>
 </div>
-
-<script src="../../../common/script/jquery-3.2.1.min.js"></script>
-<script src="../../../plugin/popper/js/popper.min.js"></script>
-<script src="../../../plugin/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(".i-menu-item-div").on("click", function () {
+        var childMenuGroup = $(this).siblings();
+        if (childMenuGroup.hasClass("i-div-closed")) {
+            childMenuGroup.removeClass("i-div-closed");
+        } else {
+            childMenuGroup.addClass("i-div-closed");
+        }
+    });
+</script>
 </body>
 </html>
