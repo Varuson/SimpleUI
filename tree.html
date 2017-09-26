@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图例</title>
+</head>
+<body>
+<button onclick="startOne()">One</button>
+<button onclick="startOne()">Four</button>
+<canvas id="canvas" width="1024px" height="800px"></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var context;
+    if (canvas.getContext("2d")) {
+        context = canvas.getContext("2d");
+    } else {
+        alert("浏览器不兼容");
+    }
+    var originPoint = {
+        x: 700,
+        y: 700
+    }
+    var originLeftAngle = 1.25;
+    var originRightAngle = 1.75;
+    var lineLength = 100;
+
+
+    var bpArray = new Array();
+
+    var i = 0;
+
+
+    context.moveTo(originPoint.x, originPoint.y);
+    context.lineTo(originPoint.x, originPoint.y - lineLength);
+
+    function analysisEqua(equation, originP, lineLength, angleNum) {
+        var objs = new Array();
+        var nextP = originP;
+        for (var i = 0; i < equation.length; i++) {
+            switch (equation.get(i)) {
+                case "A":
+                    var obj = new Object();
+                    obj.beginX = nextP.x;
+                    obj.beginY = nextP.y;
+                    obj.endX = nextP.x;
+                    obj.endY = nextP.y - lineLength;
+                    if (undefined != nextP.left && null != nextP.left && nextP.left) {
+                        obj.type = "left";
+
+                    } else if (undefined != nextP.right && null != nextP.right && nextP.right) {
+                        obj.type = "left";
+                    } else {
+                        obj.type = "line";
+                    }
+                    objs.push(obj);
+                    nextP.x = obj.endX;
+                    nextP.y = obj.endY;
+                    break;
+                case "B":
+                    break;
+                case "[":
+                    break;
+                case "]":
+                    break;
+                case "+":
+                    nextP.left = true;
+                    originP.left = true;
+                    break;
+                case "-":
+                    nextP.right = true;
+                    originP.right = true;
+                    break;
+            }
+        }
+
+    }
+
+    function draw(objs, lineLength) {
+        for (var i = 0; i < objs.length; i++) {
+            context.moveTo(objs[i].beginX, objs[i].beginY);
+            if (objs[i].type == "line") {
+                context.lineTo(objs[i].endX, objs[i].endY);
+            } else if (objs[i].type == "point") {
+                context.arc(objs[i].beginX, objs[i].beginY, lineLength, Math.PI * originRightAngle, Math.PI * originRightAngle, true);
+            }
+        }
+        context.strokeStyle = "red";
+        context.lineWidth = 5;
+        context.stroke();
+    }
+
+
+</script>
+</body>
+</html>
