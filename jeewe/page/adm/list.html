@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理</title>
+
+    <link rel="stylesheet" href="../../../plugin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../plugin/awesome/css/font-awesome.min.css"/>
+
+    <script src="../../../common/script/jquery-3.2.1.min.js"></script>
+    <script src="../../../plugin/popper/js/popper.min.js"></script>
+    <script src="../../../plugin/bootstrap/js/bootstrap.min.js"></script>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .i-page-div {
+            width: 100%;
+            height: 100%;
+            font-size: 0px;
+        }
+
+        .i-menus-div {
+            display: inline-block;
+            vertical-align: top;
+            width: 18%;
+            height: 100%;
+            margin: 0px;
+            overflow-y: scroll;
+        }
+
+        .i-main-div {
+            display: inline-block;
+            vertical-align: top;
+            width: 82%;
+            height: 100%;
+            margin: 0px;
+            background-color: lightgray;
+        }
+
+        .i-menu-common-div {
+            border: none;
+            border-radius: 0px;
+        }
+
+        .i-menu-item-div, .i-menu-item-div:first-child, .i-menu-item-div:last-child {
+            min-height: 38px;
+            padding: 0px;
+            border-left: none;
+            border-right: none;
+            border-width: 1px;
+            border-color: lightgray;
+            border-radius: 0px;;
+            cursor: pointer;
+        }
+
+        .i-menu-name-div {
+            height: 100%;
+            padding-top: 5px;
+            padding-left: 80px;
+            font-size: 16px;
+        }
+
+        .i-menu-logo-i {
+            width: 15px;
+            margin-right: 8px;
+            text-align: center;
+        }
+
+        .i-child-menu-item-div, .i-child-menu-item-div:first-child, .i-child-menu-item-div:last-child {
+            min-height: 38px;
+            padding: 0px;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            border-color: gray;
+            border-radius: 0px;
+            background-color: darkgray;
+            cursor: pointer;
+        }
+
+        .i-menu-item-div:hover {
+            background-color: #007BFF;
+        }
+
+        .i-child-menu-item-div:hover {
+            background-color: #007BFF;
+        }
+
+        .i-addon-span {
+            background-color: white;
+        }
+
+        .i-copyright-div {
+            margin-top: 100px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .i-copyright-div span {
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .i-div-closed {
+            display: none;
+        }
+
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .i-breadcrumb-ol {
+            margin: 0px;
+            font-size: 16px;
+        }
+
+        .i-data-group-div {
+            overflow-y: scroll;
+        }
+
+        .i-search-group-div {
+            font-size: 16px;
+        }
+
+        .i-search-form-div {
+            margin: 0px;
+        }
+
+        .i-data-table {
+            font-size: 16px;
+        }
+
+        .i-page-btn-ul {
+            font-size: 16px;
+        }
+
+        .i-data-action-i {
+            margin-right: 15px;
+            font-size: 23px;
+        }
+
+        .i-input-group-div {
+            display: inline-block;
+            width: 300px;
+            vertical-align: top;
+        }
+    </style>
+
+<body>
+
+<div class="i-page-div">
+    <!--Menu-->
+    <div class="i-menus-div">
+        <div class="card text-center i-menu-common-div">
+            <div class="card-body">
+                <img class="img-fluid rounded-circle" src="../../../common/images/yxc.jpg"/>
+            </div>
+        </div>
+        <div class="input-group p-2">
+            <input type="text" class="form-control" aria-label="菜单查询" placeholder="输入菜单名"/>
+            <span class="input-group-addon i-addon-span"><i class="fa fa-search"></i></span>
+        </div>
+        <div class="list-group mt-5">
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-home i-menu-logo-i"></i>站内首页</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                </div>
+            </div>
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-user-circle i-menu-logo-i"></i>个人管理</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-user-circle-o i-menu-logo-i"></i>个人信息</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-camera-retro i-menu-logo-i"></i>修改头像</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-lock i-menu-logo-i"></i>修改密码</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-cogs i-menu-logo-i"></i>系统管理</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-cog i-menu-logo-i"></i>系统信息</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-users i-menu-logo-i"></i>用户管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-vcard i-menu-logo-i"></i>角色管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa fa-navicon i-menu-logo-i"></i>菜单管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-bookmark i-menu-logo-i"></i>权限管理</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-bar-chart i-menu-logo-i"></i>系统监控</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-connectdevelop i-menu-logo-i"></i>框架监控</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-database i-menu-logo-i"></i>数据库监控</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-book i-menu-logo-i"></i>日志监控</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group i-menu-group-div">
+                <div class="list-group-item i-menu-item-div">
+                    <div class="i-menu-name-div"><i class="fa fa-folder i-menu-logo-i"></i>内容管理</div>
+                </div>
+                <div class="list-group i-child-menu-div i-div-closed">
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-file-text i-menu-logo-i"></i>文章管理</div>
+                    </div>
+                    <div class="list-group-item i-child-menu-item-div">
+                        <div class="i-menu-name-div"><i class="fa fa-user-secret i-menu-logo-i"></i>人物管理</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="i-copyright-div">
+            <div>
+                <h2>JeeWe</h2>
+            </div>
+            <span>Copyright © 2017 iSkyCode</span>
+        </div>
+    </div>
+    <!--Main-->
+    <div class="i-main-div">
+        <div class="i-content-div">
+            <ol class="breadcrumb i-breadcrumb-ol">
+                <li class="breadcrumb-item"><a href="#">首页</a></li>
+                <li class="breadcrumb-item"><a href="#">系统管理</a></li>
+                <li class="breadcrumb-item active">角色管理</li>
+            </ol>
+            <div class="card i-search-group-div">
+                <div class="card-body form-group i-search-form-div">
+                    <button class="btn mr-3">全选</button>
+                    <button class="btn mr-3">增加</button>
+                    <button class="btn mr-3">修改</button>
+                    <button class="btn mr-3">删除</button>
+                    <div class="i-input-group-div mr-3">
+                        <div class="input-group">
+                            <input id="name" name="name" type="text" class="form-control"/>
+                            <span class="input-group-addon i-addon-span"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                    <button class="btn">高级搜索</button>
+                </div>
+            </div>
+            <div class="card i-data-group-div">
+                <div class="card-body">
+                    <table class="table i-data-table">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" class="i-data-item=check-input"/></th>
+                            <th>编号</th>
+                            <th>名字</th>
+                            <th>姓氏</th>
+                            <th>用户名</th>
+                            <th>项目名</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="i-data-item=check-input"/></td>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation i-page-group-nav">
+                        <ul class="pagination i-page-btn-ul">
+                            <li class="page-item"><a class="page-link" href="#">向前</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">向后</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".i-menu-item-div").on("click", function () {
+        var childMenuGroup = $(this).siblings();
+        if (childMenuGroup.hasClass("i-div-closed")) {
+            childMenuGroup.removeClass("i-div-closed");
+        } else {
+            childMenuGroup.addClass("i-div-closed");
+        }
+    });
+    (function resize() {
+        $(".i-data-group-div").height($(window).height() - $(".i-breadcrumb-ol").height() - $(".i-search-group-div").height() - 28);
+    }());
+</script>
+</body>
+</html>
