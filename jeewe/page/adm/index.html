@@ -89,11 +89,11 @@
         }
 
         .i-menu-item-div:hover {
-            background-color: dodgerblue;
+            background-color: #007BFF;
         }
 
         .i-child-menu-item-div:hover {
-            background-color: dodgerblue;
+            background-color: #007BFF;
         }
 
         .i-addon-span {
@@ -128,6 +128,10 @@
             font-size: 16px;
         }
 
+        .i-data-group-div {
+            min-height: 815px;
+        }
+
         .i-search-group-div {
             font-size: 16px;
         }
@@ -138,6 +142,11 @@
 
         .i-page-btn-ul {
             font-size: 16px;
+        }
+
+        .i-data-action-i {
+            margin-right: 15px;
+            font-size: 23px;
         }
     </style>
 
@@ -260,10 +269,12 @@
                     <table class="table i-data-table">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>编号</th>
+                            <th>名字</th>
+                            <th>姓氏</th>
+                            <th>用户名</th>
+                            <th>项目名</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -272,18 +283,168 @@
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Larry</td>
                             <td>the Bird</td>
                             <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>JeeWe</td>
+                            <td>
+                                <i class="fa fa-plus-circle i-data-action-i"></i>
+                                <i class="fa fa-pencil-square-o i-data-action-i"></i>
+                                <i class="fa fa-trash-o i-data-action-i"></i>
+                                <i class="fa fa-info-circle i-data-action-i"></i>
+                                <i class="	fa fa-thumb-tack i-data-action-i"></i>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
