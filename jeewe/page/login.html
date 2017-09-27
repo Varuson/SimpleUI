@@ -7,23 +7,47 @@
     <link rel="stylesheet" href="../../plugin/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../plugin/awesome/css/font-awesome.min.css"/>
 
+    <style>
+        body {
+            background-image: url("../../common/images/wms.jpg");
+            background-size: cover;
+        }
+
+        .i-addon-span {
+            background-color: white;
+            font-size: 20px;
+        }
+
+        .i-login-card-div {
+            margin-top: 150px;
+            opacity: 0.8;
+        }
+
+        .i-login-btn {
+            width: 100%;
+            color: white;
+            background-color: darkcyan;
+            letter-spacing: 23px;
+        }
+    </style>
+</head>
 <body>
 <div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="card p-5">
+                <div class="card p-5 i-login-card-div">
                     <div class="card-body">
                         <h1 class="mb-4 text-center">欢迎回来，我的朋友</h1>
-                        <form action="">
-                            <div class="form-group"><label>用户名</label>
-                                <i class="fa fa-user"></i>
+                        <form class="mt-5" role="form" action="">
+                            <div class="form-group input-group">
+                                <span class="input-group-addon i-addon-span"><i class="fa fa-user"></i></span>
                                 <input type="text" class="form-control" placeholder="请输入用户名"></div>
-                            <div class="form-group"><label>密码</label>
-                                <i class="fa fa-lock"></i>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon i-addon-span"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control" placeholder="请输入密码"></div>
-                            <button type="submit" class="btn btn-info">登录</button>
+                            <button type="submit" class="btn i-login-btn">登录</button>
                         </form>
                     </div>
                 </div>
